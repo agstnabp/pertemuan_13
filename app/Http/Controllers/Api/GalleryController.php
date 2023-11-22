@@ -49,7 +49,7 @@ class GalleryController extends Controller
     * required=true,
     * in="query",
     * @OA\Schema(
-    * type="string"git remote add origin https://github.com/agstnabp/pertemuan_12.git
+    * type="string"
     * )
     * ),
     * @OA\Response(
@@ -77,33 +77,31 @@ class GalleryController extends Controller
     * summary="Tambah Gambar",
     * description="Ini adalah dokumentasi untuk menambah gambar pada gallery",
     * operationId="galllery.store",
-    * @OA\Parameter(
-    * name="title",
-    * description="judul gambar",
-    * required=true,
-    * in="query",
-    * @OA\Schema(
-    * type="string"
-    * )
-    * ),
-    * @OA\Parameter(
-    * name="description",
-    * description="deskripsi gambar",
-    * required=true,
-    * in="query",
-    * @OA\Schema(
-    * type="string"
-    * )
-    * ),
-    * @OA\Parameter(
-    * name="image_url",
-    * description="gambar",
-    * required=true,
-    * in="query",
-    * @OA\Schema(
-    * type="image"
-    * )
-    * ),
+    * @OA\RequestBody(
+     *         required=true,
+     *         description="Data untuk mengunggah gambar",
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="title",
+     *                     description="Judul Upload",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="description",
+     *                     description="Deskripsi Gambar",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="picture",
+     *                     description="File Gambar",
+     *                     type="string",
+     *                     format="binary"
+     *                 ),
+     *             )
+     *         )
+     *     ),
     * @OA\Response(
     * response="default",
     * description="Proses Berhasil"

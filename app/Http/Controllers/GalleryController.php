@@ -52,7 +52,6 @@ class GalleryController extends Controller
 
         $client = new Client();
         $url = "http://localhost:8000/api/gallery/store";
-
         $response = $client->request('POST', $url, [
             'multipart' => [
                 [
@@ -71,9 +70,9 @@ class GalleryController extends Controller
             ],
         ]);
 
-        $content = $response->getBody()->getContents();
-        $content_array = json_decode($content, true);
-        $galleries = $content_array;
+        // $content = $response->getBody()->getContents();
+        // $content_array = json_decode($content, true);
+        // $galleries = $content_array;
         return redirect()->route('gallery.index');
     }
 
