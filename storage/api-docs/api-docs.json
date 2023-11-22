@@ -72,35 +72,32 @@
                 "summary": "Tambah Gambar",
                 "description": "Ini adalah dokumentasi untuk menambah gambar pada gallery",
                 "operationId": "galllery.store",
-                "parameters": [
-                    {
-                        "name": "title",
-                        "in": "query",
-                        "description": "judul gambar",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "description",
-                        "in": "query",
-                        "description": "deskripsi gambar",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "image_url",
-                        "in": "query",
-                        "description": "gambar",
-                        "required": true,
-                        "schema": {
-                            "type": "image"
+                "requestBody": {
+                    "description": "Data untuk mengunggah gambar",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Judul Upload",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Deskripsi Gambar",
+                                        "type": "string"
+                                    },
+                                    "picture": {
+                                        "description": "File Gambar",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "default": {
                         "description": "Proses Berhasil"
